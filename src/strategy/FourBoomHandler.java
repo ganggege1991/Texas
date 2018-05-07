@@ -40,7 +40,7 @@ public class FourBoomHandler implements TexasHandler {
 
     @Override
     public int compare(HandPoker handPoker, HandPoker handPokerTarget) {
-
+        //先比较相同4张牌的大小，如果相同比较 剩下一张牌的大小
         //TODO
         return 0;
     }
