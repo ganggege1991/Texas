@@ -18,7 +18,7 @@ public class FourBoomHandler implements TexasHandler {
     public PokerType handle(HandPoker handPoker) {
 
         //牌已排序
-        //取前4个比较相同或者后4个相同则可判定为 "四张"
+        //前4个相同或者后4个相同则可判定为 "四张"
 
         List<Poker> pokerList = handPoker.getPokerList();
 
