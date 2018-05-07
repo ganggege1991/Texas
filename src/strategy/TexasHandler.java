@@ -19,5 +19,7 @@ public interface TexasHandler {
      */
     PokerType handle(HandPoker handPoker);
 
+    int compare(HandPoker handPoker,HandPoker handPokerTarget);
+
 
 }

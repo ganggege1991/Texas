@@ -3,6 +3,7 @@ package entity;
 import com.sun.istack.internal.NotNull;
 import enums.PokerType;
 import strategy.HandlerManager;
+import strategy.TexasHandler;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +22,9 @@ public class HandPoker implements Comparable<HandPoker> {
 
     private PokerType pokerType;
 
+    private TexasHandler texasHandler;
+
+
     /**
      * 总积分
      */
@@ -36,7 +40,11 @@ public class HandPoker implements Comparable<HandPoker> {
         //牌型积分
         initTotalPoint();
         //处理
-        HandlerManager.handlePoker(this);
+        texasHandler = HandlerManager.handlePoker(this);
+        //未知的类型
+        if (texasHandler == null) {
+            throw new RuntimeException("未知的牌型");
+        }
     }
 
     public List<Poker> getPokerList() {
@@ -67,10 +75,6 @@ public class HandPoker implements Comparable<HandPoker> {
         return totalPoint;
     }
 
-    public void setTotalPoint(int totalPoint) {
-        this.totalPoint = totalPoint;
-    }
-
     @Override
     public int compareTo(HandPoker o) {
 
@@ -81,11 +85,10 @@ public class HandPoker implements Comparable<HandPoker> {
         int typeResult = this.pokerType.compareTo(o.getPokerType());
         if (typeResult == 0) {
             //牌型相同比点数
-            return Integer.valueOf(this.totalPoint).compareTo(Integer.valueOf(o.totalPoint));
+            return texasHandler.compare(this, o);
         }
         //否则比类型
         return typeResult;
     }
-
 
 }

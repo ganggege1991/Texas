@@ -19,15 +19,16 @@ public class HandlerManager {
         handlerList.add(new StraightFlushHandler());
     }
 
-    public static void handlePoker(HandPoker handPoker) {
+    public static TexasHandler handlePoker(HandPoker handPoker) {
         PokerType pokerType = null;
 
         for (TexasHandler th : handlerList) {
             pokerType = th.handle(handPoker);
+            if (pokerType != null) {
+                return th;
+            }
         }
-        //没有被处理
-        if (pokerType == null) {
-            throw new RuntimeException("未知的牌型");
-        }
+
+        return null;
     }
 }

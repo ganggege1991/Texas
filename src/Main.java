@@ -16,12 +16,12 @@ public class Main {
         poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_4));
         poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_5));
         poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_2));
-        poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
+        poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
         HandPoker handPoker1 = new HandPoker(poker1);
 
 
         List<Poker> poker2 = new ArrayList<>(HandPoker.SIZE);
-        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_2));
+        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_7));
         poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_3));
         poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_4));
         poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_5));

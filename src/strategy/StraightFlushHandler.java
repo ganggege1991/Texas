@@ -48,6 +48,28 @@ public class StraightFlushHandler implements TexasHandler {
         }
     }
 
+    @Override
+    public int compare(HandPoker handPoker, HandPoker handPokerTarget) {
+
+
+        boolean flagO = isMinimum(handPoker.getPokerList());
+        boolean flagT = isMinimum(handPokerTarget.getPokerList());
+
+        if (flagO && flagT) {
+            return 0;
+        }
+
+        if (flagO) {
+            return -1;
+        }
+
+        if (flagT) {
+            return 1;
+        }
+
+        return Integer.valueOf(handPoker.getTotalPoint()).compareTo(Integer.valueOf(handPokerTarget.getTotalPoint()));
+    }
+
 
     /**
      * 判断是否可以处理
@@ -78,6 +100,7 @@ public class StraightFlushHandler implements TexasHandler {
 
         //是否最小牌型
         if (isMinimum(pokerList)) {
+            //设置为最小牌型
             return true;
         }
 
