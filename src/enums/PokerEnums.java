@@ -6,24 +6,30 @@ package enums;
 public enum PokerEnums {
 
 
-    Card_2('2'),
-    Card_3('3'),
-    Card_4('4'),
-    Card_5('5'),
-    Card_6('6'),
-    Card_7('7'),
-    Card_8('8'),
-    Card_9('9'),
-    Card_10('T'),
-    Card_J('J'),
-    Card_Q('Q'),
-    Card_K('K'),
-    Card_A('A'),;
+    Card_2(2),
+    Card_3(3),
+    Card_4(4),
+    Card_5(5),
+    Card_6(6),
+    Card_7(7),
+    Card_8(8),
+    Card_9(9),
+    Card_10(10),
+    Card_J(11),
+    Card_Q(12),
+    Card_K(13),
+    Card_A(14),;
 
-    private char card;
+    private int point;
 
 
-    PokerEnums(char card) {
-        this.card = card;
+    PokerEnums(int point) {
+        this.point = point;
     }
+
+
+    public int getPoint() {
+        return point;
+    }
+
 }

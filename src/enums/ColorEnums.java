@@ -9,19 +9,27 @@ public enum ColorEnums {
     /**
      * 黑桃
      */
-    Spade,
+    Spade(1),
     /**
      * 红桃
      */
-    Heart,
+    Heart(2),
     /**
      * 方片
      */
-    Club,
+    Club(3),
     /**
      * 梅花
      */
-    Diamond
+    Diamond(4);
 
+    private int value;
 
+    ColorEnums(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }
