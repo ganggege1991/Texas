@@ -14,11 +14,11 @@ public enum PokerEnums {
     Card_7('7'),
     Card_8('8'),
     Card_9('9'),
-    Card_10('a'),
-    Card_J('j'),
-    Card_Q('q'),
-    Card_K('k'),
-    Card_A('a'),;
+    Card_10('T'),
+    Card_J('J'),
+    Card_Q('Q'),
+    Card_K('K'),
+    Card_A('A'),;
 
     private char card;
 
