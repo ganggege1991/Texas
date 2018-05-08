@@ -4,6 +4,7 @@ import enums.ColorEnums;
 import enums.PokerEnums;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Main {
@@ -11,8 +12,10 @@ public class Main {
     public static void main(String[] args) {
 
 
+        System.out.println("同花顺测试");
         straightFlushTest();
 
+        System.out.println("四条测试");
         fourBoomTest();
     }
 
@@ -76,6 +79,7 @@ public class Main {
      * 第三组数据 [A,4,5,2,3]  [3,4,5,2,6]
      */
     public static void straightFlushTest() {
+
 
         List<Poker> poker1 = new ArrayList<>(HandPoker.SIZE);
         poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_3));

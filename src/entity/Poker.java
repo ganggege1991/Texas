@@ -17,7 +17,13 @@ public class Poker implements Comparable<Poker> {
 
     private PokerEnums card;
 
-    public Poker(@NotNull ColorEnums color, @NotNull PokerEnums card) {
+    public Poker(ColorEnums color, PokerEnums card) {
+
+
+        if (color == null || card == null) {
+            throw new NullPointerException("参数错误，不能为null");
+        }
+
         this.color = color;
         this.card = card;
     }

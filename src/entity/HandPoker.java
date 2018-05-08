@@ -30,7 +30,12 @@ public class HandPoker implements Comparable<HandPoker> {
      */
     private int totalPoint;
 
-    public HandPoker(@NotNull List<Poker> pokerList) {
+    public HandPoker(List<Poker> pokerList) {
+
+        if (pokerList == null) {
+            throw new NullPointerException("参数错误，不能为null");
+        }
+
         if (pokerList.size() != SIZE) {
             throw new RuntimeException("手牌数量错误");
         }
