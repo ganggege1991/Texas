@@ -35,7 +35,7 @@ public class HandPoker implements Comparable<HandPoker> {
             throw new RuntimeException("手牌数量错误");
         }
         this.pokerList = pokerList;
-        //排序
+        //排序，重要
         Collections.sort(pokerList);
         //牌型积分
         initTotalPoint();

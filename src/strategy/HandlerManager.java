@@ -16,15 +16,18 @@ public class HandlerManager {
     public static List<TexasHandler> handlerList = new ArrayList<>();
 
     static {
-        handlerList.add(new StraightFlushHandler());
+        handlerList.add(StraightFlushHandler.getInstance());
+        handlerList.add(FourBoomHandler.getInstance());
     }
 
     public static TexasHandler handlePoker(HandPoker handPoker) {
+
         PokerType pokerType = null;
 
         for (TexasHandler th : handlerList) {
             pokerType = th.handle(handPoker);
             if (pokerType != null) {
+                handPoker.setPokerType(pokerType);
                 return th;
             }
         }

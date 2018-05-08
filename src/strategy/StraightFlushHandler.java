@@ -19,6 +19,18 @@ public class StraightFlushHandler implements TexasHandler {
 
     private static final PokerType POKER_TYPE = PokerType.STRAIGHT_FLUSH;
 
+    private static class LazyHolder {
+        private static final StraightFlushHandler INSTANCE = new StraightFlushHandler();
+    }
+
+    private StraightFlushHandler() {
+
+    }
+
+    public static final StraightFlushHandler getInstance() {
+        return LazyHolder.INSTANCE;
+    }
+
     /**
      * 最小的牌型
      */
@@ -40,7 +52,6 @@ public class StraightFlushHandler implements TexasHandler {
          * 可以处理返回牌型
          */
         if (canHandle(handPoker)) {
-            handPoker.setPokerType(POKER_TYPE);
             return POKER_TYPE;
         } else {
             //否则返回null
@@ -86,16 +97,15 @@ public class StraightFlushHandler implements TexasHandler {
 
         int preValue = pre.getValue();
 
-        int result = 1;
+        int result;
 
         for (int i = 1; i < pokerList.size(); i++) {
             int currValue = pokerList.get(i).getColor().getValue();
             result = preValue ^ currValue;
-        }
-
-        //是否同花
-        if (result != 0) {
-            return false;
+            //有一个不同
+            if (result != 0) {
+                return false;
+            }
         }
 
         //是否最小牌型
