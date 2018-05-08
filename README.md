@@ -1,3 +1,10 @@
+### 运行步骤
+1. IDEA环境,src目录右键 选择，make dictionary as 》 Source Root
+2. 设置jdk 1.8 
+3. 配置编译后的class目录
+4. 运行 Main的主函数
+
+
 ### 已实现牌型
 同花顺，四条 相互比较，各自比较
 
