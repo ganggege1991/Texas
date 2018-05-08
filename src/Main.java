@@ -2,7 +2,10 @@ import entity.HandPoker;
 import entity.Poker;
 import enums.ColorEnums;
 import enums.PokerEnums;
+import enums.PokerType;
 
+import javax.sound.midi.Soundbank;
+import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +20,36 @@ public class Main {
 
         System.out.println("四条测试");
         fourBoomTest();
+
+        System.out.println("四条VS同花顺 测试");
+        fourBoomVSstraightFlushTest();
+    }
+
+    /**
+     * 四条VS同花顺 测试
+     */
+    public static void fourBoomVSstraightFlushTest() {
+        List<Poker> poker1 = new ArrayList<>(HandPoker.SIZE);
+
+        poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
+        poker1.add(new Poker(ColorEnums.Diamond, PokerEnums.Card_A));
+        poker1.add(new Poker(ColorEnums.Club, PokerEnums.Card_A));
+        poker1.add(new Poker(ColorEnums.Heart, PokerEnums.Card_A));
+        poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
+
+        HandPoker handPoker1 = new HandPoker(poker1);
+
+
+        List<Poker> poker2 = new ArrayList<>(HandPoker.SIZE);
+        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_3));
+        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_4));
+        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_5));
+        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_2));
+        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
+        HandPoker handPoker2 = new HandPoker(poker2);
+
+        printResult(handPoker1, handPoker2);
+
     }
 
     /**
@@ -29,42 +62,44 @@ public class Main {
     public static void fourBoomTest() {
 
         List<Poker> poker1 = new ArrayList<>(HandPoker.SIZE);
+
         poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
-        poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
-        poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
-        poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
+        poker1.add(new Poker(ColorEnums.Diamond, PokerEnums.Card_A));
+        poker1.add(new Poker(ColorEnums.Club, PokerEnums.Card_A));
+        poker1.add(new Poker(ColorEnums.Heart, PokerEnums.Card_A));
         poker1.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
+
         HandPoker handPoker1 = new HandPoker(poker1);
 
         List<Poker> poker2 = new ArrayList<>(HandPoker.SIZE);
+
         poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_K));
-        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_K));
-        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_K));
-        poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_K));
+        poker2.add(new Poker(ColorEnums.Diamond, PokerEnums.Card_K));
+        poker2.add(new Poker(ColorEnums.Club, PokerEnums.Card_K));
+        poker2.add(new Poker(ColorEnums.Heart, PokerEnums.Card_K));
         poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
+
         HandPoker handPoker2 = new HandPoker(poker2);
         //第一组数据 比较结果
-        System.out.print("第一组数据 比较结果");
-        System.out.println(handPoker1.compareTo(handPoker2));
+        printResult(handPoker1, handPoker2);
 
         List<Poker> poker3 = new ArrayList<>(HandPoker.SIZE);
+        poker3.add(new Poker(ColorEnums.Heart, PokerEnums.Card_A));
         poker3.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
-        poker3.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
-        poker3.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
-        poker3.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
+        poker3.add(new Poker(ColorEnums.Diamond, PokerEnums.Card_A));
+        poker3.add(new Poker(ColorEnums.Club, PokerEnums.Card_A));
         poker3.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
         HandPoker handPoker3 = new HandPoker(poker3);
 
         List<Poker> poker4 = new ArrayList<>(HandPoker.SIZE);
+        poker4.add(new Poker(ColorEnums.Heart, PokerEnums.Card_A));
+        poker4.add(new Poker(ColorEnums.Diamond, PokerEnums.Card_A));
         poker4.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
-        poker4.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
-        poker4.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
-        poker4.add(new Poker(ColorEnums.Spade, PokerEnums.Card_A));
+        poker4.add(new Poker(ColorEnums.Club, PokerEnums.Card_A));
         poker4.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
         HandPoker handPoker4 = new HandPoker(poker4);
         //第二组数据 比较结果
-        System.out.print("第二组数据 比较结果");
-        System.out.println(handPoker3.compareTo(handPoker4));
+        printResult(handPoker3, handPoker4);
 
 
     }
@@ -97,8 +132,8 @@ public class Main {
         poker2.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
         HandPoker handPoker2 = new HandPoker(poker2);
         //第一组数据 比较结果
-        System.out.print("第一组数据 比较结果");
-        System.out.println(handPoker1.compareTo(handPoker2));
+        printResult(handPoker1, handPoker2);
+
 
         List<Poker> poker3 = new ArrayList<>(HandPoker.SIZE);
         poker3.add(new Poker(ColorEnums.Spade, PokerEnums.Card_3));
@@ -116,8 +151,7 @@ public class Main {
         poker4.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
         HandPoker handPoker4 = new HandPoker(poker4);
         //第二组数据 比较结果
-        System.out.print("第二组数据 比较结果");
-        System.out.println(handPoker3.compareTo(handPoker4));
+        printResult(handPoker3, handPoker4);
 
 
         List<Poker> poker5 = new ArrayList<>(HandPoker.SIZE);
@@ -136,7 +170,25 @@ public class Main {
         poker6.add(new Poker(ColorEnums.Spade, PokerEnums.Card_6));
         HandPoker handPoker6 = new HandPoker(poker6);
         //第二组数据 比较结果
-        System.out.print("第二组数据 比较结果");
-        System.out.println(handPoker5.compareTo(handPoker6));
+        printResult(handPoker5, handPoker6);
+
+    }
+
+    private static void printResult(HandPoker handPoker, HandPoker handPokerTarget) {
+
+        int result = handPoker.compareTo(handPokerTarget);
+        switch (result) {
+            case -1:
+                System.out.println(handPokerTarget.toString() + " 赢了 " + handPoker.toString() + " 输了");
+                break;
+
+            case 1:
+                System.out.println(handPoker.toString() + " 赢了 " + handPokerTarget.toString() + " 输了");
+                break;
+            default:
+                System.out.println(handPoker.toString() + "," + handPokerTarget.toString() + " 打平");
+        }
+
+
     }
 }

@@ -1,6 +1,5 @@
 package strategy;
 
-import com.sun.org.apache.regexp.internal.RE;
 import entity.HandPoker;
 import entity.Poker;
 import enums.PokerType;
@@ -37,7 +36,9 @@ public class FourBoomHandler implements TexasHandler {
 
         List<Poker> pokerList = handPoker.getPokerList();
 
+        //第一个
         int preValueForTop4 = pokerList.get(0).getCard().getPoint();
+        //第二个
         int preValueForLast4 = pokerList.get(1).getCard().getPoint();
 
         int top4result = 1, last4result = 1;

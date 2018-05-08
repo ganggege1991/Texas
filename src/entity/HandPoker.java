@@ -88,6 +88,7 @@ public class HandPoker implements Comparable<HandPoker> {
         }
 
         int typeResult = this.pokerType.compareTo(o.getPokerType());
+
         if (typeResult == 0) {
             //牌型相同比点数
             return texasHandler.compare(this, o);
@@ -96,4 +97,9 @@ public class HandPoker implements Comparable<HandPoker> {
         return typeResult;
     }
 
+
+    @Override
+    public String toString() {
+        return pokerType.getName() + "," + pokerList;
+    }
 }

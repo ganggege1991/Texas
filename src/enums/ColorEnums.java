@@ -9,24 +9,30 @@ public enum ColorEnums {
     /**
      * 黑桃
      */
-    Spade(1),
+    Spade(1, "♠"),
     /**
      * 红桃
      */
-    Heart(2),
+    Heart(2, "♥"),
     /**
      * 方片
      */
-    Club(3),
+    Club(3, "♦"),
     /**
      * 梅花
      */
-    Diamond(4);
+    Diamond(4, "♣");
 
     private int value;
+    private String graph;
 
-    ColorEnums(int value) {
+    ColorEnums(int value, String graph) {
         this.value = value;
+        this.graph = graph;
+    }
+
+    public String getGraph() {
+        return graph;
     }
 
     public int getValue() {

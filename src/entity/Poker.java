@@ -69,4 +69,9 @@ public class Poker implements Comparable<Poker> {
         return Integer.valueOf(this.getCard().getPoint()).compareTo(Integer.valueOf(o.getCard().getPoint()));
 
     }
+
+    @Override
+    public String toString() {
+        return color.getGraph() + card.getNum();
+    }
 }
