@@ -17,11 +17,11 @@ public enum ColorEnums {
     /**
      * 方片
      */
-    Club(3, "♦"),
+    Diamond(3, "♦"),
     /**
      * 梅花
      */
-    Diamond(4, "♣");
+    Club(4, "♣");
 
     private int value;
     private String graph;
