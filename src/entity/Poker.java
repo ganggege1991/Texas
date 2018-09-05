@@ -7,6 +7,7 @@ import enums.PokerEnums;
 /**
  * Created by HeGang 16:20 2018/5/7.
  * 牌
+ * @author 何刚
  */
 public class Poker implements Comparable<Poker> {
 
@@ -47,8 +48,12 @@ public class Poker implements Comparable<Poker> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Poker)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Poker)) {
+            return false;
+        }
 
         Poker poker = (Poker) o;
 

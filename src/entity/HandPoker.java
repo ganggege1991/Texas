@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class HandPoker implements Comparable<HandPoker> {
 
-
     public static final int SIZE = 5;
 
     private List<Poker> pokerList;
@@ -22,7 +21,6 @@ public class HandPoker implements Comparable<HandPoker> {
     private PokerType pokerType;
 
     private TexasHandler texasHandler;
-
 
     /**
      * 总积分
@@ -66,7 +64,6 @@ public class HandPoker implements Comparable<HandPoker> {
         this.pokerList = pokerList;
     }
 
-
     public PokerType getPokerType() {
         return pokerType;
     }
@@ -95,7 +92,6 @@ public class HandPoker implements Comparable<HandPoker> {
         //否则比类型
         return typeResult;
     }
-
 
     @Override
     public String toString() {

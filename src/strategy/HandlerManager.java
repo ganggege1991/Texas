@@ -20,9 +20,11 @@ public class HandlerManager {
         handlerList.add(FourBoomHandler.getInstance());
     }
 
+
+
     public static TexasHandler handlePoker(HandPoker handPoker) {
 
-        PokerType pokerType = null;
+        PokerType pokerType;
 
         for (TexasHandler th : handlerList) {
             pokerType = th.handle(handPoker);

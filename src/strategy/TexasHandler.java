@@ -19,6 +19,12 @@ public interface TexasHandler {
      */
     PokerType handle(HandPoker handPoker);
 
+    /**
+     * 比较两个牌型
+     * @param handPoker
+     * @param handPokerTarget
+     * @return
+     */
     int compare(HandPoker handPoker,HandPoker handPokerTarget);
 
 
