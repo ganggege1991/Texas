@@ -19,7 +19,7 @@ public class StraightFlushHandler implements TexasHandler {
 
     private static final PokerType POKER_TYPE = PokerType.STRAIGHT_FLUSH;
 
-    private static class LazyHolder {
+    private static class LazyLoader {
         private static final StraightFlushHandler INSTANCE = new StraightFlushHandler();
     }
 
@@ -28,7 +28,7 @@ public class StraightFlushHandler implements TexasHandler {
     }
 
     public static final StraightFlushHandler getInstance() {
-        return LazyHolder.INSTANCE;
+        return LazyLoader.INSTANCE;
     }
 
     /**

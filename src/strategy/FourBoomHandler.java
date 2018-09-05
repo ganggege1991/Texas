@@ -14,7 +14,7 @@ import java.util.List;
 public class FourBoomHandler implements TexasHandler {
 
 
-    private static class LazyHolder {
+    private static class LazyLoader {
         private static final FourBoomHandler INSTANCE = new FourBoomHandler();
     }
 
@@ -23,7 +23,7 @@ public class FourBoomHandler implements TexasHandler {
     }
 
     public static final FourBoomHandler getInstance() {
-        return LazyHolder.INSTANCE;
+        return LazyLoader.INSTANCE;
     }
 
     private static final PokerType POKER_TYPE = PokerType.FOUR_OF_A_KIND;
